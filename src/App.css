@@ -40,6 +40,40 @@ textarea {
   transition: all .3s ease-in-out;
 }
 
+input[type='date']::-webkit-calendar-picker-indicator { 
+  display: block;
+  background-color: rgba(255, 255, 255, .45);
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+input[type='date']::-webkit-datetime-edit-text, 
+input[type='date']::-webkit-datetime-edit-month-field,
+input[type='date']::-webkit-datetime-edit-day-field,
+input[type='date']::-webkit-datetime-edit-year-field { 
+  color: rgba(255, 255, 255, .45); 
+  text-transform: uppercase;
+  transition: all .3s ease-in-out;
+}
+
+input[type='date']:focus::-webkit-calendar-picker-indicator,
+input[type='date']:hover::-webkit-calendar-picker-indicator{
+  background-color: rgba(255, 255, 255, 1);
+}
+
+input[type='date']:focus::-webkit-datetime-edit-text, 
+input[type='date']:focus::-webkit-datetime-edit-month-field,
+input[type='date']:focus::-webkit-datetime-edit-day-field,
+input[type='date']:focus::-webkit-datetime-edit-year-field,
+input[type='date']:hover::-webkit-datetime-edit-text, 
+input[type='date']:hover::-webkit-datetime-edit-month-field,
+input[type='date']:hover::-webkit-datetime-edit-day-field,
+input[type='date']:hover::-webkit-datetime-edit-year-field {
+  color: rgba(255, 255, 255, 1);
+}
+
 input:hover::placeholder,
 textarea:hover::placeholder {
   color: #fff;
@@ -49,7 +83,7 @@ input:focus,
 textarea:focus,
 input:hover,
 textarea:hover {
-  box-shadow: 0px 0px 10px 3px #fff
+  box-shadow: 0px 0px 10px 3px #fff;
 }
 
 textarea{
@@ -90,10 +124,17 @@ button[name='reset'] {
   background-color: rgba(255, 0, 0, .6);
 }
 
+button[name='submit']:focus,
 button[name='submit']:hover {
-  background-color: rgba(0, 0, 255, 1);
+  outline: transparent;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 255, 1);
+  background-color: rgba(0, 0, 255, .9);
 }
 
-button[name='reset']:hover {
-   background-color:rgba(255, 0, 0, 1);
+button[name='reset']:focus,
+button[name='reset']:hover  {
+  outline: transparent;
+  box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 1);
+  background-color:rgba(255, 0, 0, .9);
 }
+

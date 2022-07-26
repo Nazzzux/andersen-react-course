@@ -4,27 +4,101 @@ import Input from './Input';
 import Textarea from './Textarea';
 
   class Form extends Component {
-    render() {
-      const formFieldsHandler = event => {
-        this.setState({[event.target.name]: event.target.value}) 
+    constructor(props) { 
+      super(props)
+      
+      this.state = {
+        name: '',
+        lastName: '',
+        birthday: '',
+        phone: '',
+        site: '',
+        personalInfo: '',
+        technologyStack: '',
+        lastProjectDescr: ''
       }
+      
+      this.formFieldsHandler = this.formFieldsHandler.bind(this)
+    }
+        
+    formFieldsHandler = (event) => {
+      this.setState({[event.target.name]: event.target.value}) 
+      // console.log(`${[event.target.name]} - ${event.target.value}`);
+    }
 
-      const onSubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state);
-      }
+    // formValidation = () => {
+
+    // }
+
+    onSubmit = (event) => {
+      event.preventDefault();
+      // const isValid = this.formValidation()
+      console.log(this.state);
+    }
+
+    onReset = () => {
+      this.setState({
+        name: '',
+        lastName: '',
+        birthday: '',
+        phone: '',
+        site: '',
+        personalInfo: '',
+        technologyStack: '',
+        lastProjectDescr: ''
+      })
+    }
+
+    render() {
+
+      const {name, lastName, birthday, phone, site, personalInfo, technologyStack, lastProjectDescr} = this.state;
+
 
       return (
-        <form className='form'>
-          <Input title='Имя' name='name' changeInputValue={ formFieldsHandler } />
-          <Input title='Фамилия' name='last name' changeInputValue={ formFieldsHandler } />
-          <Input title='Дата рождения' name='birthday' changeInputValue={ formFieldsHandler } />
-          <Input title='Номер телефона' name='contact number' changeInputValue={ formFieldsHandler } />
-          <Input title='Адрес сайта' name='site' changeInputValue={ formFieldsHandler } />
-          <Textarea title='О себе' name='personal info' changeInputValue={ formFieldsHandler } />
-          <Textarea title='Стек технологий' name='technology stack' changeInputValue={ formFieldsHandler } />
-          <Textarea title='Описание последнего проекта' name='last project descr' changeInputValue={ formFieldsHandler } />
-          <Buttons getResult={ onSubmit } />
+        <form className='form' onSubmit={ this.onSubmit } >
+          <Input 
+              title='Имя' 
+              name='name'
+              value={name} 
+              changeInputValue={ this.formFieldsHandler } />
+          <Input 
+              title='Фамилия' 
+              name='lastName'
+              value={lastName} 
+              changeInputValue={ this.formFieldsHandler } />
+          <Input 
+              title='Дата рождения' 
+              name='birthday'
+              value={birthday} 
+              type='date' 
+              changeInputValue={ this.formFieldsHandler } />
+          <Input 
+              title='Номер телефона' 
+              name='phone'
+              value={phone} 
+              changeInputValue={ this.formFieldsHandler } />
+          <Input 
+              title='Адрес сайта' 
+              name='site'
+              value={site}
+              changeInputValue={ this.formFieldsHandler } />
+          <Textarea 
+              title='О себе' 
+              name='personalInfo'
+              value={personalInfo}
+              changeInputValue={ this.formFieldsHandler } />
+          <Textarea 
+              title='Стек технологий' 
+              name='technologyStack'
+              value={technologyStack} 
+              changeInputValue={ this.formFieldsHandler } />
+          <Textarea 
+              title='Описание последнего проекта' 
+              name='lastProjectDescr'
+              value={lastProjectDescr} 
+              changeInputValue={ this.formFieldsHandler } />
+          <Buttons 
+              resetResult={ this.onReset }/>
         </form>
       )
     }
