@@ -8,7 +8,7 @@ class Textarea extends Component {
   render() {
     return(
       <label>
-        {this.props.title} : {this.props.value}
+        {this.props.title}
         <textarea 
         type="text" 
         name={this.props.name} 

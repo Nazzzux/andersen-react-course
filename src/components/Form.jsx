@@ -3,105 +3,90 @@ import Buttons from './Buttons';
 import Input from './Input';
 import Textarea from './Textarea';
 
-  class Form extends Component {
-    constructor(props) { 
-      super(props)
-      
-      this.state = {
-        name: '',
-        lastName: '',
-        birthday: '',
-        phone: '',
-        site: '',
-        personalInfo: '',
-        technologyStack: '',
-        lastProjectDescr: ''
-      }
-      
-      this.formFieldsHandler = this.formFieldsHandler.bind(this)
-    }
-        
+export default class Form extends Component {
+  constructor(props) {
+    super(props);
+  }
+
     formFieldsHandler = (event) => {
       this.setState({[event.target.name]: event.target.value}) 
-      // console.log(`${[event.target.name]} - ${event.target.value}`);
-    }
+    } // down to the form logic
 
-    // formValidation = () => {
-
-    // }
-
-    onSubmit = (event) => {
-      event.preventDefault();
-      // const isValid = this.formValidation()
-      console.log(this.state);
-    }
-
-    onReset = () => {
-      this.setState({
-        name: '',
-        lastName: '',
-        birthday: '',
-        phone: '',
-        site: '',
-        personalInfo: '',
-        technologyStack: '',
-        lastProjectDescr: ''
-      })
-    }
+    phoneNumberMask = (event) => {
+      const maskForPhone = event.target.value
+        .replace(/\D/g, "")
+        .match(/(\d{0,1})(\d{0,4})(\d{0,2})(\d{0,2})/)
+        .slice(1, 5)
+        .filter((item) => item !== "")
+        .join("-");
+      this.setState({ [event.target.name]: maskForPhone });
+    } 
 
     render() {
-
-      const {name, lastName, birthday, phone, site, personalInfo, technologyStack, lastProjectDescr} = this.state;
-
-
       return (
         <form className='form' onSubmit={ this.onSubmit } >
           <Input 
               title='Имя' 
               name='name'
-              value={name} 
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.name} 
+              changeInputValue={ this.formFieldsHandler } 
+           />
+          <div className='error'> <p>{this.state.nameError}</p></div>
           <Input 
               title='Фамилия' 
               name='lastName'
-              value={lastName} 
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.lastName} 
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.lastNameError}</p></div>
           <Input 
               title='Дата рождения' 
               name='birthday'
-              value={birthday} 
+              value={this.state.birthday} 
               type='date' 
-              changeInputValue={ this.formFieldsHandler } />
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.birthdayError}</p></div>
           <Input 
               title='Номер телефона' 
               name='phone'
-              value={phone} 
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.phone} 
+              // changeInputValue={ this.formFieldsHandler } 
+              changeInputValue={ this.phoneNumberMask } 
+           />
+           <div className='error'> <p>{this.state.phoneError}</p></div>
           <Input 
               title='Адрес сайта' 
               name='site'
-              value={site}
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.site}
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.siteError}</p></div>
           <Textarea 
               title='О себе' 
               name='personalInfo'
-              value={personalInfo}
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.personalInfo}
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.personalInfoError}</p></div>
           <Textarea 
               title='Стек технологий' 
               name='technologyStack'
-              value={technologyStack} 
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.technologyStack} 
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.technologyStackError}</p></div>
           <Textarea 
               title='Описание последнего проекта' 
               name='lastProjectDescr'
-              value={lastProjectDescr} 
-              changeInputValue={ this.formFieldsHandler } />
+              value={this.state.lastProjectDescr} 
+              changeInputValue={ this.formFieldsHandler } 
+           />
+           <div className='error'> <p>{this.state.lastProjectDescrError}</p></div>
           <Buttons 
-              resetResult={ this.onReset }/>
+              resetResult={ this.props.reset }/>
         </form>
-      )
-    }
-  }
 
-  export default Form;
+    )
+  }
+}

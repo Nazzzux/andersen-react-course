@@ -8,7 +8,7 @@ class Input extends Component {
   render() {
     return(
       <label>
-        {this.props.title} : {this.props.value}
+        {this.props.title}
         <input type={this.props.type || 'text'}
                name={this.props.name} 
                value={this.props.value}

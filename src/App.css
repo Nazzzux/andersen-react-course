@@ -138,3 +138,9 @@ button[name='reset']:hover  {
   background-color:rgba(255, 0, 0, .9);
 }
 
+.error {
+  font-size: 14px;
+  color: red;
+  margin: -5px 0 10px 0;
+}
+
