@@ -1,38 +1,180 @@
-.App {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 18px;
+  color: #fff;
+  background-color: #000;
+}
+
+h1 {
   text-align: center;
+  text-transform: capitalize;
+  margin-bottom: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2{
+  text-align: center;
+  text-transform: capitalize;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+form {
+  width: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+label{
+  display: block;
+  margin-bottom: 15px;
+}
+
+input,
+textarea {
+  margin-top: 7px;
+  padding: 10px;
+  max-width: 100%;
+  width: 100%;
+  background-color: inherit;
+  color: inherit;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  transition: all .3s ease-in-out;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator { 
+  display: block;
+  background-color: rgba(255, 255, 255, .45);
+  border-radius: 5px;
+  padding: 3px;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+}
+
+input[type='date']::-webkit-datetime-edit-text, 
+input[type='date']::-webkit-datetime-edit-month-field,
+input[type='date']::-webkit-datetime-edit-day-field,
+input[type='date']::-webkit-datetime-edit-year-field { 
+  color: rgba(255, 255, 255, .45); 
+  text-transform: uppercase;
+  transition: all .3s ease-in-out;
+}
+
+input[type='date']:focus::-webkit-calendar-picker-indicator,
+input[type='date']:hover::-webkit-calendar-picker-indicator{
+  background-color: rgba(255, 255, 255, 1);
+}
+
+input[type='date']:focus::-webkit-datetime-edit-text, 
+input[type='date']:focus::-webkit-datetime-edit-month-field,
+input[type='date']:focus::-webkit-datetime-edit-day-field,
+input[type='date']:focus::-webkit-datetime-edit-year-field,
+input[type='date']:hover::-webkit-datetime-edit-text, 
+input[type='date']:hover::-webkit-datetime-edit-month-field,
+input[type='date']:hover::-webkit-datetime-edit-day-field,
+input[type='date']:hover::-webkit-datetime-edit-year-field {
+  color: rgba(255, 255, 255, 1);
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+  color: #fff;
+}
+
+input:focus,
+textarea:focus,
+input:hover,
+textarea:hover {
+  box-shadow: 0px 0px 10px 3px #fff;
+}
+
+textarea{
+  resize: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 450px;
+  padding: 50px 15px;
+  margin: 0 auto;
+}
+
+.buttons {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.buttons > button {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttons > button:not(:last-child) {
+  margin-right: 15px;
 }
+
+button[name='submit'] {
+  background-color: rgba(0, 0, 255, .6);
+}
+
+button[name='reset'] {
+  background-color: rgba(255, 0, 0, .6);
+}
+
+button[name='submit']:focus,
+button[name='submit']:hover {
+  outline: transparent;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 255, 1);
+  background-color: rgba(0, 0, 255, .9);
+}
+
+button[name='reset']:focus,
+button[name='reset']:hover  {
+  outline: transparent;
+  box-shadow: 0px 0px 10px 5px rgba(255, 0, 0, 1);
+  background-color:rgba(255, 0, 0, .9);
+}
+
+.error {
+  font-size: 16px;
+  color: red;
+  margin: 7px 0 10px 0;
+}
+
+
+.count {
+  font-size: 13px;
+  text-align: right;
+  color: #fff;
+}
+
+.data-list {
+  padding: 20px 0 50px;
+}
+
+.data-list > li {
+  display: block;
+}
+
+.data-list > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.data-list-title {
+  color: rgba(255, 255, 255, .6);
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
