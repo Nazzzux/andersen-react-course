@@ -3,6 +3,7 @@ import Button from './Button';
 import FormData from './FormData';
 import Input from './Input';
 import Textarea from './Textarea';
+import ERROR_MESSAGES from './error_mesages';
 
 export default class Form extends Component {
   constructor(props) {
@@ -40,49 +41,48 @@ export default class Form extends Component {
     let lastProjectDescErrorText = '';
 
     if (this.state.name === '') {
-      nameErrorText = 'Пустое поле'
+      nameErrorText = ERROR_MESSAGES.emptyField
     } else if (this.state.name[0] !== this.state.name[0].toUpperCase()) {
-      nameErrorText = 'Большая буква'
+      nameErrorText = ERROR_MESSAGES.capitalLetter
     }
 
     if (this.state.lastName === '') {
-      lastNameErrorText = 'Пустое поле'
+      lastNameErrorText = ERROR_MESSAGES.emptyField
     } else if (this.state.lastName[0] !== this.state.lastName[0].toUpperCase()) {
-      lastNameErrorText = 'Большая буква'
+      lastNameErrorText = ERROR_MESSAGES.capitalLetter
     }
 
     if (this.state.birthday === '') {
-      birthdayErrorText = 'Пустое поле'
+      birthdayErrorText = ERROR_MESSAGES.emptyField
     }
 
-    // меньше 12 ошибка
     if (this.state.phoneNumber === '') {
-      phoneNumberErrorText = 'Пустое поле'
+      phoneNumberErrorText = ERROR_MESSAGES.emptyField
     }
 
     const siteReg = /^https:\/\//;
     if (this.state.site === '') {
-      siteErrorText = 'Пустое поле';
+      siteErrorText = ERROR_MESSAGES.emptyField;
     } else if (siteReg.test(this.state.site) === false) {
-      siteErrorText = 'Сайт должен начинаться с https://';
+      siteErrorText = ERROR_MESSAGES.site;
     }
 
     if(this.state.personalInfo === '') {
-      personalInfoErrorText = 'Пустое поле';
+      personalInfoErrorText = ERROR_MESSAGES.emptyField;
     } else if (600 - this.state.personalInfo.length < 0) {
-      personalInfoErrorText = 'Превышен лимит символов в поле';
+      personalInfoErrorText = ERROR_MESSAGES.fieldLimit;
     }
 
     if(this.state.technologyStack === '') {
-      technologyStackErrorText = 'Пустое поле';
+      technologyStackErrorText = ERROR_MESSAGES.emptyField;
     } else if (600 - this.state.technologyStack.length < 0) {
-      technologyStackErrorText = 'Превышен лимит символов в поле';
+      technologyStackErrorText = ERROR_MESSAGES.fieldLimit;
     }
 
     if(this.state.lastProjectDesc === '') {
-      lastProjectDescErrorText = 'Пустое поле';
+      lastProjectDescErrorText = ERROR_MESSAGES.emptyField;
     } else if (600 - this.state.lastProjectDesc.length < 0) {
-      lastProjectDescErrorText = 'Превышен лимит символов в поле';
+      lastProjectDescErrorText = ERROR_MESSAGES.fieldLimit;
     }
 
     if (nameErrorText || lastNameErrorText || birthdayErrorText || phoneNumberErrorText || siteErrorText || personalInfoErrorText || technologyStackErrorText || lastProjectDescErrorText) {
