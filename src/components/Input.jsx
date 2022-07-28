@@ -1,22 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react'
 
-class Input extends Component {
+export default class Input extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
-    return(
+    return (
       <label>
         {this.props.title}
-        <input type={this.props.type || 'text'}
-               name={this.props.name} 
-               value={this.props.value}
-               placeholder={this.props.title} 
-               onChange={ this.props.changeInputValue } />
+        <input 
+          type={ this.props.type || "text" }
+          name={ this.props.name }
+          value={ this.props.value }
+          placeholder={ this.props.title }
+          onChange={ this.props.change }
+        />
+        <div className='error'>{this.props.error}</div>
       </label>
     )
   }
 }
-
-export default Input;

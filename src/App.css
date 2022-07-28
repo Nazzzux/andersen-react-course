@@ -18,6 +18,11 @@ h1 {
   margin-bottom: 15px;
 }
 
+h2{
+  text-align: center;
+  text-transform: capitalize;
+}
+
 form {
   width: 100%;
 }
@@ -90,6 +95,10 @@ textarea{
   resize: none;
 }
 
+ul {
+  list-style: none;
+}
+
 .container {
   max-width: 450px;
   padding: 50px 15px;
@@ -139,8 +148,33 @@ button[name='reset']:hover  {
 }
 
 .error {
-  font-size: 14px;
+  font-size: 16px;
   color: red;
-  margin: -5px 0 10px 0;
+  margin: 7px 0 10px 0;
+}
+
+
+.count {
+  font-size: 13px;
+  text-align: right;
+  color: #fff;
+}
+
+.data-list {
+  padding: 20px 0 50px;
+}
+
+.data-list > li {
+  display: block;
+}
+
+.data-list > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.data-list-title {
+  color: rgba(255, 255, 255, .6);
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
