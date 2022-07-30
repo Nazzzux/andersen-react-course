@@ -1,9 +1,10 @@
+import './App.css';
+
 function App() {
-  let test = document.querySelector('input');
-  console.log(test.value);
   return (
-    <>
-    </>
+    <div className="App">
+
+    </div>
   );
 }
 
