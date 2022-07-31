@@ -1,0 +1,17 @@
+.data-list {
+  padding: 20px 0 50px;
+}
+
+.data-list > li {
+  display: block;
+}
+
+.data-list > li:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.data-list-title {
+  color: rgba(255, 255, 255, .6);
+  display: inline-block;
+  margin-bottom: 5px;
+}
