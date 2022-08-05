@@ -1,0 +1,9 @@
+.Todo__item {
+  border-radius: 10px;
+  padding: 25px;
+  border: 1px solid black;
+}
+
+.Todo__item:not(:last-child) {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,18 @@
+.Header {
+  color: #fff;
+  background-color: blue;
+  padding: 35px 0;
+  position: relative;
+  margin-bottom: 35px;
+}
+
+.Header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header__counter {
+  display: block;
+  font-size: 24px;
+}

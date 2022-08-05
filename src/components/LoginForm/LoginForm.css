@@ -1,0 +1,26 @@
+.LoginForm {
+  padding: 40px 60px;
+  margin: 0 auto;
+  max-width: 80%;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.LoginForm h2 {
+  margin-bottom: 20px;
+}
+
+.LoginForm form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.LoginForm .Label{
+  width: 75%;
+}
+
+.LoginForm button {
+  margin-top: auto;
+  padding: 8px 20px;
+}
