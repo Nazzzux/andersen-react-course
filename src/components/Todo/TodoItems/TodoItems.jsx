@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TodoItem from '../TodoItem/TodoItem';
 import styles from "./TodoItems.css";
 
-function TodoItems({storeTodo}) {
+function TodoItems({storeTodo, state}) {
 
   if (!storeTodo.length) {
     return (
@@ -13,17 +13,20 @@ function TodoItems({storeTodo}) {
     )
   } else {
     return (
-      <ul className='Todo__list'>
-        {storeTodo.map(todo => <TodoItem title={todo.todo} key={todo.id} />)}
-      </ul>
+      <>
+        <p className='Error'>{JSON.stringify(storeTodo)}</p>
+        <ul className='Todo__list'>
+          {storeTodo.map(todo => <TodoItem title={todo.todo} isDone={todo.isDone} id={todo.id} key={todo.id} />)}
+        </ul>
+      </>
     )
-    
+
   }
 }
 
 const mapStateToProps = state => {
   return {
-     storeTodo: state.todos.todos,
+    storeTodo: state.todos.todos,
   }
 }
 

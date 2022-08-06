@@ -1,7 +1,13 @@
 .TodoItem__empty {
   text-align: center;
+  padding: 20px 0;
+  margin-bottom: 25px;
 }
 
 .Todo__list{
   padding: 10px 0 20px;
+}
+
+.Error {
+  color: red
 }

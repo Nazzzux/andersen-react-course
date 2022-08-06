@@ -16,7 +16,8 @@ function TodoForm(props) {
     }
     const newTodo = {
       todo,
-      id: Date.now().toString()
+      id: Date.now(),
+      isDone: false,
     }
     props.createTodo(newTodo)
     setTodo('')

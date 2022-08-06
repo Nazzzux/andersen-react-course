@@ -1,9 +1,31 @@
-.Todo__item {
-  border-radius: 10px;
-  padding: 25px;
-  border: 1px solid black;
-}
-
 .Todo__item:not(:last-child) {
   margin-bottom: 15px;
+}
+
+.Todo__item-label {
+  border-radius: 10px;
+  padding: 20px 25px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.Todo__item-input {
+  margin-right: 20px;
+  width: 30px;
+  height: 30px;
+}
+
+.Todo__item button{
+  padding: 8px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.false {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 30px; 
 }

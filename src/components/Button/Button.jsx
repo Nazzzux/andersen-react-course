@@ -7,7 +7,7 @@ export default function Button(props) {
     <button 
       type={ props.type || 'button' }
       name={ props.name }
-      // onClick={ props.buttonClickHadler }
+      onClick={ props.buttonClickHadler }
     >
       {props.content}
     </button>
