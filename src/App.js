@@ -1,21 +1,26 @@
-import React from 'react';
-import styles from './App.css';
-import { Routes, Route } from 'react-router-dom';
-import LoginForm from './components/LoginForm/LoginForm';
-import Todo from './components/Todo/Todo';
+import './App.css';
+import {Routes, Route, Navigate} from 'react-router-dom'
 import Header from './components/Header/Header';
+import LoginPage from './pages/LoginPage/LoginPage'
+import TodoListPage from './pages/TodoListPage/TodoListPage';
+import ErrorPage from './pages/ErrorPage/ErrorPage';
 
 function App() {
-
   return (
-    <>
-      <Header />
+    <div className="App">
+       <Header />
+
+       {/* <TodoListPage /> */}
 
       <Routes>
-        <Route path='/' element={<LoginForm />} />
-        <Route path='/todos' element={<Todo />}/>
+        <Route path='/' element={<Navigate to='/login_page' />} />
+        <Route path='/login_page' element={<LoginPage />} />
+        <Route path='/todo_list'>
+          <Route index element={<TodoListPage />} />
+        </Route>
+        <Route path='*' element={<ErrorPage />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

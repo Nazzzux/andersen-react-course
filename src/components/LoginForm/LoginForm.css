@@ -1,26 +1,26 @@
 .LoginForm {
-  padding: 40px 60px;
-  margin: 0 auto;
   max-width: 80%;
-  border: 1px solid black;
+  margin: 0 auto;
+  padding: 35px 20px;
+  border: 1px solid #000;
   border-radius: 10px;
 }
 
-.LoginForm h2 {
-  margin-bottom: 20px;
-}
-
-.LoginForm form {
+.LoginForm__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.LoginForm .Label{
-  width: 75%;
+.LoginForm label {
+  width: 80%;
 }
 
-.LoginForm button {
-  margin-top: auto;
-  padding: 8px 20px;
+.LoginForm button{
+  padding: 10px 20px;
+}
+
+.Error {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
 }

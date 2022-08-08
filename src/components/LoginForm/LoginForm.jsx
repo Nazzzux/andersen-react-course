@@ -1,60 +1,51 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { connect } from 'react-redux';
-import styles from './LoginForm.css';
-import Input from "../Input/Input";
-import Button from "../Button/Button";
-import ERROR_MESSAGES from '../ERROR_MESSAGES';
-import { loginName } from '../redux/action';
+import React, {useState} from 'react'
+import { useNavigate } from 'react-router'
+import { useDispatch } from 'react-redux'
+import styles from './LoginForm.css'
+import Input from '../Input/Input'
+import Button from '../Button/Button'
+import { ERROR_MESSAGES } from '../../ERROR_MESSAGES'
+import { loginName } from '../../redux/actions'
 
-const LoginForm = (props) => {
-  const [name, setName] = useState('');
-  const [error, setError] = useState('');
+export default function LoginForm() {
+  const NAME = 'Name'
+  const [name, setName] = useState('')
+  const [error, setError] = useState(false)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
-  const navigate = useNavigate(); // to navigate to next tab
-
-  const loginSubmitHandler = (event) => {
-    event.preventDefault();
-    if (!name) {
-      setError(ERROR_MESSAGES.emptyField)
+  const formSubmitHandler = (event) => {
+    event.preventDefault()
+    if(!name) {
+      setError(true)
     } else {
-      props.loginName(name)
-      navigate('/todos')
+      setError(false)
+      dispatch(loginName(name))
+      setName('')
+      navigate('/todo_list')
     }
-
-  }
-
-  const inputChangeHandler = (event) => {
-    setName(event.target.value)
   }
 
   return (
-    <div className="container">
-      <div className='LoginForm'>
-        <h2>Log In</h2>
-        <form 
-          onSubmit={loginSubmitHandler}
-        >
-          <Input 
-            title='Name'
-            name='name'
+    <>
+      <form className='LoginForm' on onSubmit={formSubmitHandler}>
+        {error ? <p className='Error'>{ERROR_MESSAGES.emptyField}</p> : <h2>Log In</h2>}
+        <div className='LoginForm__row'>
+        <label>
+          <Input
             value={name}
-            error={error}
-            onInputChange={inputChangeHandler}
+            title={NAME}
+            name='name'
+            inputChangeHandler={event => setName(event.target.value)}
           />
-          <Button 
-            type='submit'
-            name='submit'
-            content='Log In'
-          />
-        </form>
+        </label>
+        <Button 
+          type='submit'
+          name='submit'
+          content='Log In'
+        />
         </div>
-    </div>
+      </form>
+    </>
   )
 }
-
-const mapDispatchToProps = {
-  loginName
-}
-
-export default connect(null, mapDispatchToProps)(LoginForm);
