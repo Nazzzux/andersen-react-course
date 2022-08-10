@@ -1,7 +1,14 @@
 import React from 'react'
+import { ITodoItem } from '../../interfaces';
 import TodoItem from '../TodoItem/TodoItem';
 
-export default function TodoList(props) {
+interface ITodoList {
+  title: string,
+  todoList: Array<ITodoItem>,
+  filtered: Array<ITodoItem>,
+}
+
+const TodoList:React.FC<ITodoList> = (props) => {
   const todoList = props.todoList
   const filtered = props.filtered
 
@@ -18,3 +25,6 @@ export default function TodoList(props) {
     </>
   )
 }
+
+
+export default TodoList

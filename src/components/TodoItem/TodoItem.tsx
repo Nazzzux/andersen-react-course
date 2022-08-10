@@ -6,20 +6,28 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteTodo, editTodo, toggleTodo} from '../../redux/actions';
 import Button from '../Button/Button';
 import './TodoItem.css';
+import { RootState } from '../..';
+import { ITodoItem } from '../../interfaces';
 
-export default function TodoItem(props) {
+interface IUpdatedTodo {
+  title: string,
+  id: string,
+}
+
+const TodoItem:React.FC<ITodoItem> = (props) => {
   const dispatch = useDispatch()
-  const todoItem = useSelector(state => state.todo.todoList.find(item => item.id === props.id))
+  const todoItem = useSelector((state:RootState) => state.todo.todoList.find(item => item.id === props.id))
 
-  const [readOnly, setReadOnly] = useState(true)
-  const [newTitle, setNewTitle] = useState(todoItem.title)
+  const [readOnly, setReadOnly] = useState<boolean>(true)
+  const [newTitle, setNewTitle] = useState<string>(todoItem?.title || '')
 
-  const deleteButtonClickHandler = (event) => dispatch(deleteTodo(event.target.id))
-  const todoTitleInputChange = (event) => setNewTitle(event.target.value)  
+  const deleteButtonClickHandler = (event:React.ChangeEvent) => dispatch(deleteTodo(event.target.id))
+  const todoTitleInputChange = (event:React.ChangeEvent<HTMLInputElement  >) => setNewTitle(event.target.value)  
+  
   const checkboxChangeHandler = () => dispatch(toggleTodo(props.id))
   const editButtonClickHandler = () => {
     setReadOnly(!readOnly)
-    const updatedTodo = {
+    const updatedTodo:IUpdatedTodo = {
       title: newTitle,
       id: props.id
     }
@@ -60,3 +68,5 @@ export default function TodoItem(props) {
     </>
   )
 }
+
+export default TodoItem

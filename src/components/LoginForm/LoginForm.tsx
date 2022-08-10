@@ -7,14 +7,14 @@ import Button from '../Button/Button'
 import { ERROR_MESSAGES } from '../../ERROR_MESSAGES'
 import { loginName } from '../../redux/actions'
 
-export default function LoginForm() {
-  const NAME = 'Name'
-  const [name, setName] = useState('')
-  const [error, setError] = useState(false)
+const LoginForm: React.FC = () => {
+  const NAME:string = 'Name'
+  const [name, setName] = useState<string>('')
+  const [error, setError] = useState<boolean>(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = (event:React.SyntheticEvent) => {
     event.preventDefault()
     if(!name) {
       setError(true)
@@ -28,7 +28,7 @@ export default function LoginForm() {
 
   return (
     <>
-      <form className='LoginForm' on onSubmit={formSubmitHandler}>
+      <form className='LoginForm' onSubmit={formSubmitHandler}>
         {error ? <p className='Error'>{ERROR_MESSAGES.emptyField}</p> : <h2>Log In</h2>}
         <div className='LoginForm__row'>
         <label>
@@ -36,7 +36,7 @@ export default function LoginForm() {
             value={name}
             title={NAME}
             name='name'
-            inputChangeHandler={event => setName(event.target.value)}
+            inputChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setName(event.target.value)}
           />
         </label>
         <Button 
@@ -49,3 +49,5 @@ export default function LoginForm() {
     </>
   )
 }
+
+export default LoginForm

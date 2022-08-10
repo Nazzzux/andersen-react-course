@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { ReactComponentElement } from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter  } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, compose } from "redux";
 import { rootReducer } from "./redux/rootReducer";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, compose(
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-))
+const store = createStore(rootReducer, composeWithDevTools())
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+export type RootState = ReturnType<typeof store.getState>
+
+const rootElement = document.getElementById('root')
+if (!rootElement) throw new Error('Failed to find the root element');
+const root = ReactDOM.createRoot(rootElement);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

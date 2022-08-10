@@ -1,7 +1,19 @@
 import React from 'react'
 import "./Input.css";
 
-export default function Input(props) {
+interface IInput {
+  id?: string,
+  type?: 'text' | 'checkbox',
+  value?: string,
+  name?: string,
+  placeholder?: string,
+  title?: string,
+  checked?: boolean,
+  readOnly?: boolean,
+  inputChangeHandler?: any
+}
+
+const Input:React.FC<IInput> = (props) => {
   return (
     <input
       className='Input'
@@ -16,3 +28,5 @@ export default function Input(props) {
     />
   )
 }
+
+export default Input

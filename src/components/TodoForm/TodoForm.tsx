@@ -4,25 +4,24 @@ import { useDispatch, useSelector } from 'react-redux';
 import Input from '../Input/Input'
 import Button from '../Button/Button'
 import { addTodo } from '../../redux/actions';
+import { ITodoItem } from '../../interfaces';
 
 export default function TodoForm() {
-  const [todoTitle, setTodoTitle] = useState('');
+  const [todoTitle, setTodoTitle] = useState<string>('');
   const dispatch = useDispatch();
 
-  const newTodo ={
+  const newTodo:ITodoItem = {
     title: todoTitle,
     id: Date.now().toString(),
     isDone: false
   }
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = (event:React.SyntheticEvent) => {
     event.preventDefault();
     if(!todoTitle) {
       return
     }
-
     dispatch(addTodo(newTodo))
-
     setTodoTitle('')
   }
 
@@ -35,7 +34,7 @@ export default function TodoForm() {
             title='Place for your todo'
             value={todoTitle}
             name='todoTitle'
-            inputChangeHandler={(event) => setTodoTitle(event.target.value)}
+            inputChangeHandler={(event:React.ChangeEvent<HTMLInputElement>) => setTodoTitle(event.target.value)}
           />
         </label>
         <Button

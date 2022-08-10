@@ -1,10 +1,11 @@
 import React from 'react'
-import styles from './Header.css';
+import './Header.css';
 import { useSelector } from 'react-redux';
+import { RootState } from '../..';
 
-export default function Header() {
-  const name = useSelector((state) => state.login.name)
-  const todoQuantity = useSelector(state => state.todo.todoList).filter(item => item.isDone !== true)
+const Header:React.FC = () => {
+  const name:string = useSelector((state:RootState) => state.login.name)
+  const todoQuantity = useSelector((state:RootState) => state.todo.todoList).filter(item => item.isDone !== true)
 
   return (
     <div className='Header'>
@@ -21,3 +22,5 @@ export default function Header() {
     </div>
   )
 }
+
+export default Header
