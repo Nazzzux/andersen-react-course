@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux'
-import styles from './TodoWrapper.css'
+import './TodoWrapper.css'
 import Button from '../Button/Button';
 import TodoList from '../TodoList/TodoList'
 

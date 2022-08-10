@@ -5,7 +5,7 @@ import Input from '../Input/Input'
 import {useDispatch, useSelector} from "react-redux";
 import {deleteTodo, editTodo, toggleTodo} from '../../redux/actions';
 import Button from '../Button/Button';
-import styles from './TodoItem.css';
+import './TodoItem.css';
 
 export default function TodoItem(props) {
   const dispatch = useDispatch()

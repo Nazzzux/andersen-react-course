@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate } from 'react-router'
 import { useDispatch } from 'react-redux'
-import styles from './LoginForm.css'
+import './LoginForm.css'
 import Input from '../Input/Input'
 import Button from '../Button/Button'
 import { ERROR_MESSAGES } from '../../ERROR_MESSAGES'
