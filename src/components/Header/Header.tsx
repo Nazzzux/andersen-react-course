@@ -8,10 +8,10 @@ const Header:React.FC = () => {
   const todoQuantity = useSelector((state:RootState) => state.todo.todoList).filter(item => item.isDone !== true)
 
   return (
-    <div className='Header'>
-     <div className='Container'>
-        <div className='Header__inner'>
-          <h1 className='Header__title'>Welcome, {name || 'Newcomer'}!</h1>
+    <div className='header'>
+     <div className='container'>
+        <div className='header__inner'>
+          <h1 className='header__title'>Welcome, {name || 'Newcomer'}!</h1>
           {todoQuantity.length > 0 
               ? todoQuantity.length === 1 
                   ? (<p>You have {todoQuantity.length} task.</p>)

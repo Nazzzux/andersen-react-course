@@ -10,8 +10,6 @@ function App() {
     <div className="App">
        <Header />
 
-       {/* <TodoListPage /> */}
-
       <Routes>
         <Route path='/' element={<Navigate to='/login_page' />} />
         <Route path='/login_page' element={<LoginPage />} />

@@ -16,7 +16,7 @@ interface IInput {
 const Input:React.FC<IInput> = (props) => {
   return (
     <input
-      className='Input'
+      className='input'
       id={props.id}
       type={props.type || "text"}
       value={props.value}

@@ -37,7 +37,7 @@ const TodoItem:React.FC<ITodoItem> = (props) => {
   return (
     <>
       {todoItem && (
-        <div className='TodoItem'>
+        <div className='todoItem'>
           <Input
             type='checkbox'
             id={props.id}

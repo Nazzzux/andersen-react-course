@@ -26,9 +26,9 @@ export default function TodoForm() {
   }
 
   return (
-    <form className='TodoForm' onSubmit={formSubmitHandler}>
+    <form className='todoForm' onSubmit={formSubmitHandler}>
       <h2>Add To Do</h2>
-      <div className='TodoForm__row'>
+      <div className='todoForm__row'>
         <label>
           <Input
             title='Place for your todo'

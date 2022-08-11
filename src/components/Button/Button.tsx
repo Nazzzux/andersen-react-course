@@ -6,12 +6,14 @@ interface IButtonProps {
   type?: "button" | "submit" | "reset",
   name?: string,
   content?: any,
-  buttonClickHandler?: any
+  buttonClickHandler?: any,
+  className?: string
 }
 
 const Button:React.FC<IButtonProps> = (props:IButtonProps) => {
   return (
     <button
+      className={props.className}
       id={props.id}
       type={props.type || 'button'}
       name={props.name}

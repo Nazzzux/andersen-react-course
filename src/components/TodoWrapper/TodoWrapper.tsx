@@ -21,16 +21,16 @@ const TodoWrapper: React.FC = () => {
   
   if (todoList.length > 0) {
     return (
-      <div className='TodoWrapper'>
-        <ul className='TodoTab__list'>
-          <li className='TodoTab__item'>
+      <div className='todoWrapper'>
+        <ul className='todoTab__list'>
+          <li className='todoTab__item'>
             <Button
               id='undone'
               content='Left To Do'
               buttonClickHandler={buttonClickHandler}
             />
           </li>
-          <li className='TodoTab__item'>
+          <li className='todoTab__item'>
             <Button
               id='done'
               content='Done Todos'
@@ -45,7 +45,7 @@ const TodoWrapper: React.FC = () => {
     )
   } else {
     return (
-      <p className='Empty'>There is nothing to do. Add something to do, please.</p>
+      <p className='empty'>There is nothing to do. Add something to do, please.</p>
     )
   }
 }

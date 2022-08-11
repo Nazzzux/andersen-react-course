@@ -28,9 +28,9 @@ const LoginForm: React.FC = () => {
 
   return (
     <>
-      <form className='LoginForm' onSubmit={formSubmitHandler}>
-        {error ? <p className='Error'>{ERROR_MESSAGES.emptyField}</p> : <h2>Log In</h2>}
-        <div className='LoginForm__row'>
+      <form className='loginForm' onSubmit={formSubmitHandler}>
+        {error ? <p className='error'>{ERROR_MESSAGES.emptyField}</p> : <h2>Log In</h2>}
+        <div className='loginForm__row'>
         <label>
           <Input
             value={name}

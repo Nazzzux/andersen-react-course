@@ -4,7 +4,7 @@ import TodoWrapper from '../../components/TodoWrapper/TodoWrapper'
 
 export default function TodoListPage() {
   return (
-    <div className='Container'>
+    <div className='container'>
       <TodoForm />
       <TodoWrapper />
     </div>

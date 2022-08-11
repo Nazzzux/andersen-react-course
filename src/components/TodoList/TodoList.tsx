@@ -15,9 +15,9 @@ const TodoList:React.FC<ITodoList> = (props) => {
   return (
     <>
     <h3>{props.title}</h3>
-      <ul className='TodoWrapper__list'>
+      <ul className='todoWrapper__list'>
         {filtered.map(todo => (
-          <li className="TodoWrapper__item">
+          <li className="todoWrapper__item">
             <TodoItem id={todo.id} isDone={todo.isDone} title={todo.title} key={todo.id} />
            </li>
         ))}
